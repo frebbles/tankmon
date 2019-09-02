@@ -1,0 +1,12 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"U3";"ESP12F-Devkit-V3-modtext";1;"NodeMCU_1.0_(ESP-12E)";;;
+2;"U2";"TO-220-3_Horizontal_TabDown";1;"L7805";;;
+3;"U1";"Aosong_DHT11_5.5x12.0_P2.54mm";1;"DHT11";;;
+4;"R11,R10,R9,R8,R7,R6,R5,R4";"R_0603_1608Metric";8;"10K";;;
+5;"R3,R2";"R_0603_1608Metric";2;"10k";;;
+6;"R1";"R_0603_1608Metric";1;"220k";;;
+7;"Q4,Q3,Q2,Q1";"SOT-23";4;"BSS138";;;
+8;"J3,J2";"PinHeader_1x04_P2.54mm_Vertical";2;"Conn_01x04_Male";;;
+9;"J1";"BarrelJack_Horizontal";1;"Barrel_Jack";;;
+10;"C2";"C_Radial_D5.0mm_H5.0mm_P2.00mm";1;"0.1uF";;;
+11;"C1";"C_Radial_D5.0mm_H5.0mm_P2.00mm";1;"0.33uF";;;
