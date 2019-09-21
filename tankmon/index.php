@@ -20,7 +20,10 @@ function depth2VolumeL ($tanknum, $depthMM) {
   } else {
     $tankvolume = ($tank2EmptyDepthMM + $tank2FullDepthMM - $depthMM) * pow(($tank2DiameterMM/2), 2) * pi();
   }
-  return $tankvolume / 1000000;
+  if ($tankvolume > 0)
+    return $tankvolume / 1000000;
+  else
+    return 0;
 }
 
 ?><!doctype html>
