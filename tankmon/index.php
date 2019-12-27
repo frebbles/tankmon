@@ -61,14 +61,14 @@ function depth2VolumeL ($tanknum, $depthMM) {
 var dateFormat = 'MMMM DD YYYY HHmm';
 <?php
 $lastData = 0;
-if (($handle = fopen("./tanklogd1.csv", "r")) !== FALSE) {
+if (($handle = popen("tail -200 ./tanklogd1.csv", "r")) !== FALSE) {
 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-if ($lastData == 0) {
+if ($lastData[0] == 0) {
 ?>
 date = moment('<?php print date("F d Y Hi", $data[0]);?>', dateFormat);
 data1 = [{t:date.valueOf(), y:<?php print depth2VolumeL(1,$data[1]*10);?>}]; 
 <?php
-} else {
+} else if (($data[1]>40)&&($data[1]<2000)){
 ?>
 date = moment('<?php print date("F d Y Hi", $data[0]);?>', dateFormat);
 data1.push({t:date.valueOf(), y:<?php print depth2VolumeL(1,$data[1]*10);?>}); 
@@ -80,14 +80,14 @@ $lastData = $data;
 fclose($handle);
 
 $lastData = 0;
-if (($handle = fopen("./tanklogd2.csv", "r")) !== FALSE) {
+if (($handle = popen("tail -200 ./tanklogd2.csv", "r")) !== FALSE) {
 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-if ($lastData == 0) {
+if ($lastData[0] == 0) {
 ?>
 date = moment('<?php print date("F d Y Hi", $data[0]);?>', dateFormat);
 data2 = [{t:date.valueOf(), y:<?php print depth2VolumeL(2,$data[1]*10);?>}]; 
 <?php
-} else {
+} else if (($data[1]>40)&&($data[1]<2000)) {
 ?>
 date = moment('<?php print date("F d Y Hi", $data[0]);?>', dateFormat);
 data2.push({t:date.valueOf(), y:<?php print depth2VolumeL(2,$data[1]*10);?>}); 
@@ -165,7 +165,7 @@ var chart1 = new Chart(ctx1, cfg1);
 var dateFormat = 'MMMM DD YYYY HHmm';
 <?php
 $lastData = 0;
-if (($handle = fopen("./tanklogv.csv", "r")) !== FALSE) {
+if (($handle = popen("tail -200 ./tanklogv.csv", "r")) !== FALSE) {
 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 if ($lastData == 0) {
 ?>
@@ -200,7 +200,7 @@ var chart2 = new Chart(ctx2, cfg2);
 var dateFormat = 'MMMM DD YYYY HHmm';
 <?php
 $lastData = 0;
-if (($handle = fopen("./tanklogt.csv", "r")) !== FALSE) {
+if (($handle = popen("tail -200 ./tanklogt.csv", "r")) !== FALSE) {
 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 if ($lastData == 0) {
 ?>
@@ -219,7 +219,7 @@ fclose($handle);
 
 <?php
 $lastData = 0;
-if (($handle = fopen("./tanklogh.csv", "r")) !== FALSE) {
+if (($handle = popen("tail -200 ./tanklogh.csv", "r")) !== FALSE) {
 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 if ($lastData == 0) {
 ?>
