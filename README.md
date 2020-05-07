@@ -1,4 +1,4 @@
--- TankMon
+# TankMon
 
 A no frills dual tank water level monitoring solution incorporating:
 
